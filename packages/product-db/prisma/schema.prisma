@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Product {
+  id           Int             @id @default(autoincrement())
+  variants     ProductVariant[]
+  created      DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+  categorySlug String
+  category     Category @relation(fields: [categorySlug], references: [slug])
+}
+
+model Category {
+  id      Int       @id @default(autoincrement())
+  name    String
+  slug    String    @unique
+  product Product[]
+}
+
+model ProductVariant {
+  id          Int      @id @default(autoincrement())
+  product     Product  @relation(fields: [productId], references: [id])
+  productId   Int
+  name        String
+  price       Float
+  imageUrl    String
+  description String
+  size        String
+  // color property is optional, can add later when client provides them
+  // color     String?
+}

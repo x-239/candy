@@ -1,0 +1,14 @@
+{
+  "name": "repo-order-db",
+  "version": "0.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.33"
+  },
+  "dependencies": {
+    "mongoose": "^9.2.1"
+  }
+}

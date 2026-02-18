@@ -24,13 +24,16 @@ const Footer = () => {
       </div>
       <div className="flex flex-col gap-4 text-xm text-gray-400 items-center md:items-start ">
         <p className="text-black font-light">روابط سريعة</p>
-        <Link href="/" target="_blank" className="hover:text-pink-200">
+        <Link href="/" className="hover:text-pink-200">
           الرئيسية
         </Link>
-        <Link href="/" target="_blank" className="hover:text-pink-200">
+        <Link
+          href="/products"
+          className="hover:text-pink-200"
+        >
           منتجاتنا
         </Link>
-        <Link href="/" target="_blank" className="hover:text-pink-200">
+        <Link href="/" className="hover:text-pink-200">
           مين احنا
         </Link>
       </div>
