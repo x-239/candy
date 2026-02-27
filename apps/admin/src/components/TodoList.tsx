@@ -49,8 +49,8 @@ const TodoList = () => {
           {/* LIST ITEM */}
           <Card className="p-4">
             <div className="flex items-center gap-4">
-              <Checkbox id="item1" checked />
-              <label htmlFor="item1" className="text-sm text-muted-foreground">
+              <Checkbox id="item2" checked />
+              <label htmlFor="item2" className="text-sm text-muted-foreground">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
               </label>
             </div>
@@ -58,8 +58,8 @@ const TodoList = () => {
           {/* LIST ITEM */}
           <Card className="p-4">
             <div className="flex items-center gap-4">
-              <Checkbox id="item1" />
-              <label htmlFor="item1" className="text-sm text-muted-foreground">
+              <Checkbox id="item3" />
+              <label htmlFor="item3" className="text-sm text-muted-foreground">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
               </label>
             </div>
@@ -67,8 +67,8 @@ const TodoList = () => {
           {/* LIST ITEM */}
           <Card className="p-4">
             <div className="flex items-center gap-4">
-              <Checkbox id="item1" />
-              <label htmlFor="item1" className="text-sm text-muted-foreground">
+              <Checkbox id="item4" />
+              <label htmlFor="item4" className="text-sm text-muted-foreground">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
               </label>
             </div>
@@ -76,8 +76,8 @@ const TodoList = () => {
           {/* LIST ITEM */}
           <Card className="p-4">
             <div className="flex items-center gap-4">
-              <Checkbox id="item1" />
-              <label htmlFor="item1" className="text-sm text-muted-foreground">
+              <Checkbox id="item5" />
+              <label htmlFor="item5" className="text-sm text-muted-foreground">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
               </label>
             </div>
@@ -85,8 +85,8 @@ const TodoList = () => {
           {/* LIST ITEM */}
           <Card className="p-4">
             <div className="flex items-center gap-4">
-              <Checkbox id="item1" />
-              <label htmlFor="item1" className="text-sm text-muted-foreground">
+              <Checkbox id="item6" />
+              <label htmlFor="item6" className="text-sm text-muted-foreground">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
               </label>
             </div>
@@ -94,8 +94,8 @@ const TodoList = () => {
           {/* LIST ITEM */}
           <Card className="p-4">
             <div className="flex items-center gap-4">
-              <Checkbox id="item1" />
-              <label htmlFor="item1" className="text-sm text-muted-foreground">
+              <Checkbox id="item7" />
+              <label htmlFor="item7" className="text-sm text-muted-foreground">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
               </label>
             </div>
@@ -103,8 +103,8 @@ const TodoList = () => {
           {/* LIST ITEM */}
           <Card className="p-4">
             <div className="flex items-center gap-4">
-              <Checkbox id="item1" />
-              <label htmlFor="item1" className="text-sm text-muted-foreground">
+              <Checkbox id="item8" />
+              <label htmlFor="item8" className="text-sm text-muted-foreground">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
               </label>
             </div>
@@ -112,8 +112,8 @@ const TodoList = () => {
           {/* LIST ITEM */}
           <Card className="p-4">
             <div className="flex items-center gap-4">
-              <Checkbox id="item1" checked />
-              <label htmlFor="item1" className="text-sm text-muted-foreground">
+              <Checkbox id="item9" checked />
+              <label htmlFor="item9" className="text-sm text-muted-foreground">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
               </label>
             </div>
@@ -121,8 +121,8 @@ const TodoList = () => {
           {/* LIST ITEM */}
           <Card className="p-4">
             <div className="flex items-center gap-4">
-              <Checkbox id="item1" checked />
-              <label htmlFor="item1" className="text-sm text-muted-foreground">
+              <Checkbox id="item10" checked />
+              <label htmlFor="item10" className="text-sm text-muted-foreground">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
               </label>
             </div>
@@ -130,8 +130,8 @@ const TodoList = () => {
           {/* LIST ITEM */}
           <Card className="p-4">
             <div className="flex items-center gap-4">
-              <Checkbox id="item1" checked />
-              <label htmlFor="item1" className="text-sm text-muted-foreground">
+              <Checkbox id="item11" checked />
+              <label htmlFor="item11" className="text-sm text-muted-foreground">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
               </label>
             </div>
@@ -139,8 +139,8 @@ const TodoList = () => {
           {/* LIST ITEM */}
           <Card className="p-4">
             <div className="flex items-center gap-4">
-              <Checkbox id="item1" checked />
-              <label htmlFor="item1" className="text-sm text-muted-foreground">
+              <Checkbox id="item12" checked />
+              <label htmlFor="item12" className="text-sm text-muted-foreground">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
               </label>
             </div>
@@ -148,8 +148,8 @@ const TodoList = () => {
           {/* LIST ITEM */}
           <Card className="p-4">
             <div className="flex items-center gap-4">
-              <Checkbox id="item1" checked />
-              <label htmlFor="item1" className="text-sm text-muted-foreground">
+              <Checkbox id="item13" checked />
+              <label htmlFor="item13" className="text-sm text-muted-foreground">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
               </label>
             </div>

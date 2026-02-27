@@ -50,7 +50,6 @@ app.get("/health", (req: Request, res: Response) => {
   });
 });
 
-app.use(clerkMiddleware());
 app.get("/test", shouldBeUser, (req, res) => {
   res.json({
     message: "product serivce are authenticated!",
@@ -65,7 +64,7 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   console.log(err);
   return res
     .status(err.status || 500)
-    .json({ message: err.message || "Inter Server Error!" });
+    .json({ message: err.message || "Internal Server Error!" });
 });
 
 app.listen(8000, () => {

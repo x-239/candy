@@ -68,7 +68,7 @@ const getData = async (): Promise<Product[]> => {
   ];
 };
 
-const PaymentsPage = async () => {
+const ProductsPage = async () => {
   const data = await getData();
   return (
     <div className="">
@@ -80,4 +80,4 @@ const PaymentsPage = async () => {
   );
 };
 
-export default PaymentsPage;
+export default ProductsPage;

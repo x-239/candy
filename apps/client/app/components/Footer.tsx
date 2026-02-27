@@ -22,7 +22,7 @@ const Footer = () => {
           بنسويلكم ازكى بوكيهات الكاندي لجميع المناسبات
         </p>
       </div>
-      <div className="flex flex-col gap-4 text-xm text-gray-400 items-center md:items-start ">
+      <div className="flex flex-col gap-4 text-sm text-gray-400 items-center md:items-start ">
         <p className="text-black font-light">روابط سريعة</p>
         <Link href="/" className="hover:text-pink-200">
           الرئيسية
@@ -37,7 +37,7 @@ const Footer = () => {
           مين احنا
         </Link>
       </div>
-      <div className="flex flex-col gap-4 text-xm text-gray-400 items-center md:items-start">
+      <div className="flex flex-col gap-4 text-sm text-gray-400 items-center md:items-start">
         <h4 className="text-gray-500  ">تابعنا</h4>
         <a
           href="https://www.instagram.com/blossom_candy0/"
@@ -48,7 +48,7 @@ const Footer = () => {
         </a>
       </div>
 
-      {/* <div className="flex flex-col gap-4 text-xm text-gray-400 items-center md:items-start ">
+      {/* <div className="flex flex-col gap-4 text-sm text-gray-400 items-center md:items-start ">
         <p className="text-black font-light">روابط سريعة</p>
         <Link href="/" target="_blank" className="hover:text-pink-200">
           الرئيسية

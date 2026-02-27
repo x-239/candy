@@ -4,7 +4,7 @@ import CartWrapper from "./CartWrapper";
 function CartPage() {
   return (
     <Suspense>
-      <CartWrapper />;
+      <CartWrapper />
     </Suspense>
   );
 }

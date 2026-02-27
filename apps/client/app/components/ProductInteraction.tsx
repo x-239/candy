@@ -1,7 +1,7 @@
 "use client";
 
 import { Minus, Plus, ShoppingCart } from "lucide-react";
-import { ProductType, ProductVariant } from "../types";
+import { ProductType, ProductVariant } from "repo-types";
 import { useState } from "react";
 import useCartStore from "../stores/cartStore";
 import { toast } from "react-toastify";
@@ -30,8 +30,13 @@ const ProductInteraction = ({
       id: product.id,
       quantity,
       selectedSize: selectedVariant.name,
+      created: new Date(), // Dummy
+      updatedAt: new Date(), // Dummy
+      categorySlug: "dummy5", // Dummy
       variants: [
         {
+          id: 0, // Dummy
+          productId: product.id,
           name: selectedVariant.name,
           price: selectedVariant.price,
           imageUrl: selectedVariant.imageUrl,

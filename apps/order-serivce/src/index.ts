@@ -1,11 +1,13 @@
-import Fastfiy from "fastify";
+import Fastify from "fastify";
 import "dotenv/config";
 import { clerkPlugin } from "@clerk/fastify";
 import { shouldBeUser } from "./middleware/authMiddleware.js";
 import { connectOrderDB } from "repo-order-db";
 import { orderRoute } from "./routes/order.js";
+import { setDefaultResultOrder } from "dns";
+setDefaultResultOrder("ipv4first");
 
-const fastify = Fastfiy({ logger: true });
+const fastify = Fastify({ logger: true });
 
 fastify.register(clerkPlugin);
 

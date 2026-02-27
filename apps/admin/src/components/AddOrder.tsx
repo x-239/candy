@@ -31,7 +31,7 @@ import { Button } from "./ui/button";
 const formSchema = z.object({
   amount: z.number().min(1, { message: "Amount must be at least 1!" }).max(50),
   userId: z.string().min(1, { message: "User id is required!" }),
-  status: z.enum(["pending", "proccessing", "success", "faild"]),
+  status: z.enum(["pending", "processing", "success", "failed"]),
 });
 
 const AddOrder = () => {
@@ -88,11 +88,11 @@ const AddOrder = () => {
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="pending">Pending</SelectItem>
-                          <SelectItem value="proccessing">
-                            Proccessing
+                          <SelectItem value="processing">
+                            Processing
                           </SelectItem>
                           <SelectItem value="success">Success</SelectItem>
-                          <SelectItem value="faild">Faild</SelectItem>
+                          <SelectItem value="failed">Failed</SelectItem>
                         </SelectContent>
                       </Select>
                     </FormControl>

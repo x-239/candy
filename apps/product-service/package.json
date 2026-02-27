@@ -12,12 +12,14 @@
   },
   "dependencies": {
     "@clerk/express": "^1.7.69",
+    "@repo/product-db": "*",
     "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
     "express": "^5.2.1",
-    "@repo/product-db": "file:../../packages/product-db",
-    "repo-types":"file:/../../../packages/types"
+    "repo-types": "*"
   },
   "devDependencies": {
+    "@repo/typescript-config": "*",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/node": "^20.19.30",

@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^\\$i=0; Get-Content c:\\\\Users\\\\lil_s\\\\Desktop\\\\CANDY\\\\apps\\\\payment-service\\\\src\\\\routes\\\\session\\.route\\.ts \\| ForEach-Object \\{ \\$i\\+\\+; \"\\{0,3\\}: \\$_\" -f \\$i \\}$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

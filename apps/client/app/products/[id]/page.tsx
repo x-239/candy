@@ -1,10 +1,13 @@
 import ProductInteraction from "@/components/ProductInteraction";
-import { ProductType } from "@/types";
+import { ProductType } from "repo-types";
 import Image from "next/image";
 
 const products = [
   {
-    id: "1",
+    id: 1,
+    created: new Date(),
+    updatedAt: new Date(),
+    categorySlug: "bouquets",
     variants: [
       {
         size: "كبير",
@@ -41,7 +44,7 @@ const ProductPage = async ({
   const { id } = await params;
   const { size } = await searchParams;
 
-  const product = products.find((p) => p.id === id);
+  const product = products.find((p) => String(p.id) === id);
   const selectedVariant =
     product?.variants.find((v) => v.size === size) ?? product?.variants[0];
 
@@ -61,7 +64,7 @@ const ProductPage = async ({
           src={selectedVariant.imageUrl}
           alt={selectedVariant.name}
           fill
-          className="object-contain rounded-lmd"
+          className="object-contain rounded-lg"
         />
       </div>
 

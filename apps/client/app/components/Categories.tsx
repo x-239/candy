@@ -41,7 +41,7 @@ const Categories = () => {
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-1 bg-pink-100/30 p-2 rounded-md mb-4 text-sm">
       {categories.map((category) => (
         <div
-          className={`flex items-center justify-center gap cursor-pointer px-2 py-1 rounded-md ${category.slug === selectedCategory ? "bg-white" : "text-gray-500"}`}
+          className={`flex items-center justify-center gap-2 cursor-pointer px-2 py-1 rounded-md ${category.slug === selectedCategory ? "bg-white" : "text-gray-500"}`}
           key={category.name}
           onClick={() => handleChange(category.slug)}
         >

@@ -14,7 +14,7 @@ import ProfileButton from "./ProfileButton";
 
 const Navbar = () => {
   return (
-    <div className="bg-white/50  sticky p-3 top-0 z-50 backdrop:blur-2xl border-b pb-4 border-gray-200">
+    <div className="bg-white/50  sticky p-3 top-0 z-50 backdrop-blur-2xl border-b pb-4 border-gray-200">
       <nav className="w-full pl-6 flex items-center justify-between">
         {/* LEFT */}
         <Link href="/" className="flex items-center gap-1">
@@ -61,7 +61,7 @@ const Navbar = () => {
                      transition-opacity duration-200
                      whitespace-nowrap"
               >
-                Notfications
+                Notifications
               </span>
             </div>
           </Link>

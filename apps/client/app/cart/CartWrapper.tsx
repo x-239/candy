@@ -3,95 +3,48 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { ArrowRight, Minus, Trash2 } from "lucide-react";
 import ShippingForm from "../components/ShippingForm";
-import PaymentForm from "../components/PaymentForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { ShippingFormInput } from "../types";
+import { ShippingFormInput } from "repo-types";
 import useCartStore from "../stores/cartStore";
+import StripePaymentForm from "@/components/StripePaymentForm";
 
 // -------------------- STEPS --------------------
 const steps = [
   { id: 1, title: "Shopping cart" },
-  { id: 2, title: "Shipping Adress" },
+  { id: 2, title: "Shipping Address" },
   { id: 3, title: "Payment Method" },
 ];
-
-// -------------------- CART ITEMS (OBJECT) --------------------
-// const cartItems = {
-//   1: {
-//     id: 1,
-//     variants: [
-//       {
-//         name: "بوكيه كاندي كبير",
-//         price: 8,
-//         imageUrl: "/candy2.jpeg",
-//         description:
-//           "بوكيه كاندي فاخر وكبير، مليان ألوان وزاهي، مثالي للهدايا الكبيرة والمناسبات الخاصة.",
-//       },
-//       {
-//         name: "بوكيه كاندي صغير",
-//         price: 5,
-//         imageUrl: "/candy1.jpeg",
-//         description: "بوكيه كاندي صغير وخلابو مناسب كهدية لطيفة او تذكارية",
-//       },
-//     ],
-//     quantity: 1,
-//     selectedSize: "كبير",
-//   },
-
-//   2: {
-//     id: 2,
-//     variants: [
-//       {
-//         name: "كاسة كاندي كبيرة",
-//         price: 2.5,
-//         imageUrl: "/candy7.jpeg",
-//         description:
-//           "كاسة كاندي كبيرة، مليانة حلويات متنوعة، مثالية للمشاركة أو كهدية فخمة للأطفال.",
-//       },
-//       {
-//         name: "كاسة كاندي صغيرة",
-//         price: 1.25,
-//         imageUrl: "/candy8.jpeg",
-//         description:
-//           "كاسة كاندي صغيرة، لطيفة وسهلة الحمل، مثالية كهدايا صغيرة أو مكافآت للأطفال.",
-//       },
-//     ],
-//     quantity: 1,
-//     selectedSize: "كبير",
-//   },
-
-//   3: {
-//     id: 3,
-//     variants: [
-//       {
-//         name: "كيكة كاندي كبيرة",
-//         price: 15,
-//         imageUrl: "/candy5.jpeg",
-//         description:
-//           "كيك كاندي كبير، تصميم ممتع وملون، يسرق الأنظار في أي حفلة أو مناسبة.",
-//       },
-//       {
-//         name: "كيكة كاندي صغيرة",
-//         price: 8,
-//         imageUrl: "/candy6.jpeg",
-//         description: "كيك كاندي صغير، حلو ومثالي للكيك الفردي أو كهدية لطيفة.",
-//       },
-//     ],
-//     quantity: 1,
-//     selectedSize: "كبير",
-//   },
-// };
 
 // -------------------- COMPONENT --------------------
 const CartWrapper = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const [shippingForm, setShippingForm] = useState<ShippingFormInput>();
 
-  const activeStep = parseInt(searchParams.get("step") || "1");
-  const { cart, removeFromCart } = useCartStore();
+  // pull cart and shipping info from the persistent store
+  const cart = useCartStore((s) => s.cart);
+  const removeFromCart = useCartStore((s) => s.removeFromCart);
+  const shippingForm = useCartStore((s) => s.shippingForm);
+  const setShippingForm = useCartStore((s) => s.setShippingForm);
+
+  // track step both in state and in the URL so that navigation is
+  // reliable even if `useSearchParams` doesn’t trigger a re-render quickly.
+  const [activeStep, setActiveStep] = useState<number>(() =>
+    parseInt(searchParams.get("step") || "1"),
+  );
+
+  useEffect(() => {
+    const s = parseInt(searchParams.get("step") || "1");
+    if (s !== activeStep) {
+      setActiveStep(s);
+    }
+  }, [searchParams, activeStep]);
+
   const cartArray = Object.values(cart);
+
+  useEffect(() => {
+    console.debug("CartWrapper state", { activeStep, shippingForm, cartArray });
+  }, [activeStep, shippingForm, cartArray]);
 
   const totalPrice = cartArray.reduce((acc, item) => {
     const selectedVariant = item.variants.find((v) =>
@@ -138,7 +91,7 @@ const CartWrapper = () => {
         {/* LEFT */}
         <div className="w-full lg:w-7/12 shadow-lg border border-pink-100 p-8 rounded-lg flex flex-col gap-8 bg-[#f3f0f7]">
           {activeStep === 1 &&
-            cart.map((item) => {
+            cartArray.map((item) => {
               const selectedVariant = item.variants.find((v) =>
                 v.name.includes(item.selectedSize),
               );
@@ -192,12 +145,14 @@ const CartWrapper = () => {
           {activeStep === 2 && (
             <ShippingForm setShippingForm={setShippingForm} />
           )}
-          {activeStep === 3 && shippingForm && <PaymentForm />}
-          {activeStep === 3 && !shippingForm && (
-            <p className="text-lg text-red-600">
-              Please fill the shipping form!
-            </p>
-          )}
+          {activeStep === 3 &&
+            (shippingForm ? (
+              <StripePaymentForm shippingForm={shippingForm} />
+            ) : (
+              <p className="text-lg text-red-600">
+                Please fill the shipping form!
+              </p>
+            ))}
         </div>
 
         {/* RIGHT */}

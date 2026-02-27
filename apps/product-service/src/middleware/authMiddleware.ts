@@ -38,7 +38,7 @@ export const shouldBeAdmin = (
   const claims = auth.sessionClaims as CustomJwtSessionClaims;
   
   if (claims.metadata?.role !== "admin") {
-    return res.status(403).json({ message: "Unauthraized" });
+    return res.status(403).json({ message: "Unauthorized" });
   }
 
   req.userId = auth.userId;

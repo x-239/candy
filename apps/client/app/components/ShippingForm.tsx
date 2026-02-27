@@ -1,8 +1,8 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import { ShippingFormInput, shippingFormSchema } from "../types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { ShippingFormInput, shippingFormSchema } from "repo-types";
 
 const ShippingForm = ({
   setShippingForm,
@@ -19,7 +19,10 @@ const ShippingForm = ({
   const router = useRouter();
   const handleShippingForm: SubmitHandler<ShippingFormInput> = (data) => {
     setShippingForm(data);
-    router.push("/cart?step=3", { scroll: false });
+    console.debug("shipping data saved", data);
+    // state update in store is synchronous, but give React one tick before
+    // navigating just to avoid any potential unmount issues
+    setTimeout(() => router.push("/cart?step=3", { scroll: false }), 0);
   };
   return (
     <form
@@ -44,7 +47,7 @@ const ShippingForm = ({
       </div>
       {/* EMAIL*/}
       <div className="flex flex-col gap-1">
-        <label htmlFor="emil" className="text-sm font-semibold">
+        <label htmlFor="email" className="text-sm font-semibold">
           Email
         </label>
         <input

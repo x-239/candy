@@ -13,7 +13,7 @@ const TestPage = async () => {
   });
   const dataProduct = await resProduct.json();
   console.log(dataProduct);
-  
+
   // Order serivce backend
   const resOrder = await fetch("http://localhost:8001/test", {
     headers: {

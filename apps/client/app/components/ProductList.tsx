@@ -1,11 +1,14 @@
 "use client";
-import { ProductTypes } from "../types";
+import { ProductTypes } from "repo-types";
 import Categories from "./Categories";
 import ProductCard from "./ProductCard";
 
 const products: ProductTypes = [
   {
     id: 1,
+    created: new Date(),
+    updatedAt: new Date(),
+    categorySlug: "dummy1",
     variants: [
       {
         name: "بوكيه كاندي كبير",
@@ -15,6 +18,7 @@ const products: ProductTypes = [
         description:
           "بوكيه كاندي فاخر وكبير، مليان ألوان وزاهي، مثالي للهدايا الكبيرة والمناسبات الخاصة.",
       },
+
       {
         name: "بوكيه كاندي صغير",
         size: "صغير",
@@ -26,6 +30,9 @@ const products: ProductTypes = [
   },
   {
     id: 2,
+    created: new Date(),
+    updatedAt: new Date(),
+    categorySlug: "dummy2",
     variants: [
       {
         name: "كاسة كاندي كبيرة",
@@ -47,6 +54,9 @@ const products: ProductTypes = [
   },
   {
     id: 3,
+    created: new Date(),
+    updatedAt: new Date(),
+    categorySlug: "dummy3",
     variants: [
       {
         name: "كيكة كاندي كبيرة",
@@ -71,7 +81,7 @@ const ProductList = () => {
   return (
     <div>
       <Categories />
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols- gap-4">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
         {products.map((product) => (
           <div className="px-4" key={product.id}>
             <ProductCard product={product} />

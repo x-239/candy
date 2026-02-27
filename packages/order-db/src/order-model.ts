@@ -1,7 +1,7 @@
 import mongoose, { InferSchemaType, model } from "mongoose";
 const { Schema } = mongoose;
 
-export const OrderStatus = ["success", "faild"] as const;
+export const OrderStatus = ["success", "failed"] as const;
 
 const OrderSchema = new Schema(
   {
@@ -19,7 +19,7 @@ const OrderSchema = new Schema(
       ],
       required: true,
     },
-    adress: { type: String, required: true },
+    address: { type: String, required: true },
   },
   { timestamps: true },
 );

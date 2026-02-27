@@ -44,7 +44,7 @@ const sizes = ["كبير", "وسط", "صغير"] as const;
 
 const formSchema = z.object({
   name: z.string().min(1, { message: "Product name is Required!" }).max(50),
-  description: z.string().min(1, { message: "Description is " }).max(500),
+  description: z.string().min(1, { message: "Description is required!" }).max(500),
   price: z.number().min(1, { message: "Price is required!" }),
   category: z.enum(categories),
   sizes: z.enum(sizes),

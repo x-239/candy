@@ -3,13 +3,14 @@ import {
   CartStoreActionsType,
   CartStoreStateType,
   CartItemType,
-} from "../types";
+} from "repo-types";
 import { persist, createJSONStorage } from "zustand/middleware";
 
 const useCartStore = create<CartStoreStateType & CartStoreActionsType>()(
   persist(
     (set) => ({
       cart: [] as CartItemType[],
+      shippingForm: undefined,
       addToCart: (product: CartItemType) =>
         set((state) => {
           const existingIndex = state.cart.findIndex(
@@ -36,6 +37,8 @@ const useCartStore = create<CartStoreStateType & CartStoreActionsType>()(
             .filter((item) => item.quantity > 0),
         })),
       clearCart: () => set({ cart: [] }),
+      setShippingForm: (data) => set({ shippingForm: data }),
+      clearShippingForm: () => set({ shippingForm: undefined }),
     }),
     {
       name: "cart",

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ProductType, ProductVariant } from "../types";
+import { ProductType, ProductVariant } from "repo-types";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import Link from "next/link";
 import { ShoppingCart, Sparkles } from "lucide-react";
@@ -20,8 +20,13 @@ const ProductCard = ({ product }: { product: ProductType }) => {
       id: product.id,
       quantity: 1,
       selectedSize: selectedVariant.name,
+      categorySlug: "dummy4", //Dummy
+      created: new Date(), //Dummy
+      updatedAt: new Date(), //Dummy
       variants: [
         {
+          id: 0, // Dummy for now
+          productId: product.id, //
           name: selectedVariant.name,
           price: selectedVariant.price,
           imageUrl: selectedVariant.imageUrl,

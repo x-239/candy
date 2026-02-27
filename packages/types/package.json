@@ -1,13 +1,27 @@
 {
   "name": "repo-types",
-  "version": "0.0.0",
-  "main": "src/index.ts",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "prepare": "npm run build"
+  },
   "exports": {
     ".": {
-      "import": "./src/index.ts",
-      "types": "./src/index.ts"
-    }
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./dist": "./dist/index.js",
+    "./dist/*": "./dist/*"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@repo/product-db": "*",
+    "zod": "*"
   },
   "devDependencies": {
     "@types/node": "^20.19.33"
